@@ -11,3 +11,15 @@ run = ["sh", "-c", "streamlit run main.py"]
 [[ports]]
 localPort = 8501
 externalPort = 80
+
+[workflows]
+runButton = "Startup Generator"
+
+[[workflows.workflow]]
+name = "Startup Generator"
+author = 15542915
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "streamlit run main.py --server.address=0.0.0.0 --server.port=8501"
